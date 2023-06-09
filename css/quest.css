@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #352F2F;
+    background-color: var(--active);
     height: 100vh;
     width: 100vw;
    
@@ -11,7 +11,7 @@ body {
     width: 60%;
     height: 95%;
     margin: auto;
-    color: white;
+    color: var(--colorText);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,13 +27,13 @@ body {
 /* coding */
 .coding{
     height: 100%;
-    background-color: #FF6551;
+    background-color: var(--main);
     border-radius: .5em;
     padding-top: .2em;
 }
 .codeEntry{
     height: 27%;
-    background-color: #924E4E;
+    background-color: var(--container);
     margin: auto;
     margin-top: .5em;
     width: 90%;
@@ -52,11 +52,22 @@ body {
     resize: none;
     border: none;
     background-color: transparent;
-    color: white;
+    color: var(--colorText);
     width: 100%;
     font-size: 1.1em;
+    height: 8em;
 }
 .problem textarea:focus{
+    outline: none;
+}
+.problem textarea::-webkit-scrollbar{
+    width: 0;
+}
+.problem input{
+    background-color: transparent;
+    border: none;
+}
+.problem input:focus{
     outline: none;
 }
 /* DASHBOARD */
@@ -64,7 +75,7 @@ body {
 .dashboard{
     width: 50%;
     height: 70%;
-    background: #FF6551;
+    background: var(--main);
     border-radius: .5em;
 }
 
@@ -73,7 +84,7 @@ body {
     align-items: center;
     width: 95%;
     height: 11%;
-    background-color: #924E4E;
+    background-color: var(--container);
     margin: auto;
     margin-top: .5em;
     border-radius: .5em;
@@ -83,7 +94,7 @@ body {
 .entryDash input{
     background: transparent ;
     border: none;
-    color: white;
+    color: var(--colorText);
     height: 2em;
     font-size: 1em;
     width: 60%;
@@ -104,12 +115,12 @@ body {
     margin-left: .5em;
 }
 .entryDash.active{
-    background-color: #352F2F;
+    background-color: var(--active);
     height: 14%;
 }
 
 .activeItem{
-    background: #352F2F;
+    background-color: var(--active);
 }
 
 
@@ -143,11 +154,13 @@ body {
 }
 .btnCode button{
     border: none;
-    background-color: #924E4E;
+    background-color: var(--container);
     border-radius: .5em;
-    color: white;
+    color: var(--colorText);
     width: 40%;
 }
+
+
 @media screen and (max-width: 768px){
     .profile, .dashboard {
         height: 100%;
@@ -184,11 +197,16 @@ body {
     }
     .problem textarea{
         font-size: 1.1em;
+        height: 4em;
     }
     .codeEntry{
         height: 3.5em;
         padding: .5em;
     }
+    .btnCode{
+        margin-top: 0.2em;
+    }
+
 
 }
 
@@ -209,4 +227,5 @@ body {
     .entryDash{
         height: 12%;
     }
+
 }

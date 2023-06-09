@@ -1,3 +1,22 @@
+<?php
+require('connection/database.php');
+if(isset($_POST['submit'])){
+    if(isset($_POST['email'])){
+        $email = $_POST['email'];
+        $query = "SELECT * FROM account";
+        $results = mysqli_query($conn, $query);
+        $fetch = mysqli_fetch_array($results);
+        if($fetch['email'] == $email){
+            header("Location: reset.php?email=$email");
+            exit();
+        }else{
+            echo "<script>alert('No user found by email');</script>";
+        }
+    }else{
+        echo "<script>alert('Email must not be empty');</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/form.css">
-    <script src="../script/script.js"></script>
+    
 </head>
 <body>
     <div class="container">
@@ -17,21 +36,23 @@
             </div>
         </div>
 
-        <form action="">
+        <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
             <div class="topBox">
                 <div class="entry">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
-                    <input type="text" placeholder="email">
+                    <input type="email" placeholder="email" name="email">
                 </div>
             </div>
 
             <div class="botBtn">
-                <button name="sumbit" type="submit">SUBMIT</button>
+                <button name="submit" type="submit">SUBMIT</button>
                 <p onclick="goPage('signin')">CANCEL PROCESS</p>
             </div>
             
         </form>
 
     </div>
+    <audio id="background-music" src="music/bg_music.mp3" loop style="display:none;"></audio>
+    <script src="mainscript.js"></script>
 </body>
 </html>

@@ -9,6 +9,8 @@ if(isset($_POST['submit'])){
         $results = mysqli_query($conn,$query);
         if($results){
             echo "<script>alert('Succesful');</script>";
+            header("Location: avatar.php");
+            exit();
         }else{
             echo "Query error: " . mysqli_error($conn);
         }
@@ -24,8 +26,8 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/form.css">
-    <script src="../script/script.js"></script>
 </head>
 <body>
     <div class="container">
@@ -66,5 +68,7 @@ if(isset($_POST['submit'])){
         </form>
 
     </div>
+    <audio id="background-music" src="music/bg_music.mp3" loop style="display:none;"></audio>
+    <script src="mainscript.js"></script>
 </body>
 </html>

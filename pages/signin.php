@@ -6,18 +6,20 @@ if(isset($_POST['submit'])){
         $password = $_POST['password'];
         $query = "SELECT * from account";
         $Fetch = mysqli_query($conn,$query);
-
         if($Fetch){
             $queryFetch = mysqli_fetch_array($Fetch);
             if($queryFetch['username']==$username and $queryFetch['password']==$password){
+                session_start();
+                $_SESSION['id'] = $queryFetch['id'];
                 echo "<script>alert('Succesful');</script>";
+                header("Location: menu.php");
+                exit();
             }else{
                 echo "<script>alert('NOT Succesful');</script>";
             }
         }else{
             echo "Query error: " . mysqli_error($conn);
         }
-
     }else{
         echo "<script>alert('Username and Password Must have value');</script>";
     }
@@ -30,8 +32,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="..../css/form.css">
-    <script src="../script/script.js"></script>
+    <link rel="stylesheet" href="../css/form.css">
 </head>
 <body>
     <div class="container">
@@ -67,5 +68,9 @@ if(isset($_POST['submit'])){
         </form>
 
     </div>
+
+    <audio id="background-music" src="music/bg_music.mp3" loop style="display:none;"></audio>
+    <script src="mainscript.js"></script>
+
 </body>
 </html>

@@ -1,3 +1,24 @@
+<?php
+require('connection/database.php');
+$email = $_GET['email'];
+if(isset($_POST['submit'])){
+    if(isset($_POST['confirmpass']) and isset($_POST['newpass'])){
+        $npass = $_POST['newpass'];
+        $cpass = $_POST['confirmpass'];
+        if($npass == $cpass){
+            $query = "UPDATE account set password= '$npass' where email = '$email'";
+            $results = mysqli_query($conn,$query);
+            if($results){
+                echo "<script>alert('Succesful');</script>";
+                header("Location: signin.php");
+                exit();
+            }else{
+                echo "<script>alert('NOT Succesful');</script>";
+            }
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/form.css">
-    <script src="../script/script.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -17,28 +38,30 @@
             </div>
         </div>
 
-        <form action="">
+        <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
             <div class="topBox" id="passEntry">
                 <div class="entry">
                     <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><path fill="white" d="M160 16a80.07 80.07 0 0 0-76.09 104.78l-57.57 57.56A8 8 0 0 0 24 184v40a8 8 0 0 0 8 8h40a8 8 0 0 0 8-8v-16h16a8 8 0 0 0 8-8v-16h16a8 8 0 0 0 5.66-2.34l9.56-9.57A80 80 0 1 0 160 16Zm20 76a16 16 0 1 1 16-16a16 16 0 0 1-16 16Z"/></svg>
-                    <input class="password-input" type="password" placeholder="new pass">
+                    <input class="password-input" type="password" placeholder="new pass" name="newpass">
                 </div>
                 <svg style="visibility: hidden;" onclick="togglePasswordVisibility()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
             </div>
             <div class="topBox" id="passEntry">
                 <div class="entry">
                     <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><path fill="white" d="M160 16a80.07 80.07 0 0 0-76.09 104.78l-57.57 57.56A8 8 0 0 0 24 184v40a8 8 0 0 0 8 8h40a8 8 0 0 0 8-8v-16h16a8 8 0 0 0 8-8v-16h16a8 8 0 0 0 5.66-2.34l9.56-9.57A80 80 0 1 0 160 16Zm20 76a16 16 0 1 1 16-16a16 16 0 0 1-16 16Z"/></svg>
-                    <input class="password-input" type="password" placeholder="confirm pass">
+                    <input class="password-input" type="password" placeholder="confirm pass" name="confirmpass">
                 </div>
                 <svg onclick="togglePasswordVisibility()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
             </div>
             <div class="botBtn">
-                <button name="sumbit" type="submit">SUBMIT</button>
+                <button name="submit" type="submit">SUBMIT</button>
                 <p onclick="goPage('signin')">CANCEL PROCESS</p>
             </div>
             
         </form>
 
     </div>
+    <audio id="background-music" src="music/bg_music.mp3" loop style="display:none;"></audio>
+    <script src="mainscript.js"></script>
 </body>
 </html>

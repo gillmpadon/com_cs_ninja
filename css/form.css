@@ -1,14 +1,14 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #352F2F;
+    background-color: var(--active);
     height: 100vh;
     width: 100vw;
     overflow: hidden;
 }
 
 .container{
-    background: #FF6551;
+    background: var(--main);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: .5em;
     margin: auto;
@@ -20,7 +20,7 @@ body{
 .topBox{
     height: 3em;
     width: 95%;
-    background-color: #352F2F;
+    background-color: var(--active);
     margin: auto;
     margin-bottom: 1em;
     border-radius: .5em;
@@ -43,7 +43,7 @@ body{
     margin: auto;
     display: flex;
     justify-content: space-between;
-    color: white;
+    color: var(--colorText);
 }
 
 .entry input{
@@ -51,13 +51,13 @@ body{
     height: 50%;
     background: transparent;
     border: none;
-    color: white;
+    color: var(--colorText);
 }
 .entry input:focus{
     outline: none;
 }
 ::placeholder{
-    color: white;
+    color: var(--colorText);
     font-size: 1.2em;
 }
 .entry svg{
@@ -70,7 +70,7 @@ body{
 /* forgot */
 #forgot{
     text-decoration: none;
-    color:  #352F2F;
+    color:  var(--active);
     position: relative;
     top: -.8em;
     left: .5em;
@@ -85,13 +85,13 @@ body{
     width: 100%;
     bottom: 0;
     line-height: 0;
-    color: #352F2F;
+    color: var(--active);
 }
 .botBtn button{
     width: 95%;
     border-radius: .5em;
-    background-color: #352F2F;
-    color: white;
+    background-color: var(--active);
+    color: var(--colorText);
     border: none;
     height: 3em;
 }
