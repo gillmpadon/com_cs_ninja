@@ -4,9 +4,132 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a href="pages/signin.php">sign in now</a>
+    <div class="nav">
+        <div class="tab" id="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 512 512"><path fill="currentColor" d="M297.688 21.063c-15.634.137-31.488 4.074-46.657 12.343c34.997-2.542 65.762 8.182 74.345 33.938c-128.86-16.852-260.25 113.34-31.72 245.187c62.006 35.773 19.38 127.795-104.31 75.095C24.494 317.39 36.47 186.86 95.844 118.562c7.322 12.328 13.418 26.194 18.936 40.75c19.067-48.595 56.388-68.62 93.595-88.812c-52.197-24.58-102.01-14.783-150.906 8.406c10.362 5.744 19.104 13.503 26.655 22.72c-113.558 67.915-77.773 280.4 71.406 366.53c189.853 109.61 414.786-132.238 208.157-211.062c-151.438-57.77-111.705-139.905-38.03-126.156l2.624 42.625l141.345 39.375l20.906-60.657c-28.94-12.513-52.207-26.577-71.092-43.843c1.268-28.244-10.66-56.505-33.907-84.75c.757 13.793.603 27.582-1.592 41.376c-22.21-28.084-53.733-44.287-86.25-44zm43.437 65.374c23 7.268 44.722 20.866 62 44.094c-33.73 15.82-69.124-5.32-62-44.093z"/></svg>
+            <h2>CS NINJA</h2>
+        </div>
+        <div id="page" class="pageme">
+            <div class="tab" onclick="goPage('index')">HOME</div>
+            <div class="tab" onclick="goPage('about')">ABOUT</div>
+            <div class="tab" onclick="goPage('story')">STORY</div>
+            <div class="tab" id="btnPlay" onclick="goPage('play')">PLAY</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="info">
+            <div class="images">
+                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path fill="currentColor" d="M297.688 21.063c-15.634.137-31.488 4.074-46.657 12.343c34.997-2.542 65.762 8.182 74.345 33.938c-128.86-16.852-260.25 113.34-31.72 245.187c62.006 35.773 19.38 127.795-104.31 75.095C24.494 317.39 36.47 186.86 95.844 118.562c7.322 12.328 13.418 26.194 18.936 40.75c19.067-48.595 56.388-68.62 93.595-88.812c-52.197-24.58-102.01-14.783-150.906 8.406c10.362 5.744 19.104 13.503 26.655 22.72c-113.558 67.915-77.773 280.4 71.406 366.53c189.853 109.61 414.786-132.238 208.157-211.062c-151.438-57.77-111.705-139.905-38.03-126.156l2.624 42.625l141.345 39.375l20.906-60.657c-28.94-12.513-52.207-26.577-71.092-43.843c1.268-28.244-10.66-56.505-33.907-84.75c.757 13.793.603 27.582-1.592 41.376c-22.21-28.084-53.733-44.287-86.25-44zm43.437 65.374c23 7.268 44.722 20.866 62 44.094c-33.73 15.82-69.124-5.32-62-44.093z"/></svg>
+            </div>
+            <div class="information">
+                <p>CS Ninja provides an engaging and challenging gaming experience that blends programming knowledge with strategic decision-making. It offers a competitive environment through the leaderboard, encouraging players to improve their skills and climb the ranks. Whether you're a coding enthusiast or someone looking to learn programming in a fun way, CS Ninja offers an exciting journey filled with rewards and accomplishments.</p>
+            </div>
+        </div>
+        <div class="select_hero" id="heroPage">
+            <div class="imagesHero">
+                <img id="avatar_photo" src="images/unknown.png" alt="">
+            </div>
+            <div class="imagesInfo">
+                <div class="headName">
+                    <h2 id="avatar_name">DRAGON</h2>
+                </div>
+                <div class="heroCharacter">
+                    <div class="statistics">
+                        <div class="statEntry">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="56.89" viewBox="0 0 576 512"><path fill="white" d="M208 0c-29.9 0-54.7 20.5-61.8 48.2c-.8 0-1.4-.2-2.2-.2c-35.3 0-64 28.7-64 64c0 4.8.6 9.5 1.7 14C52.5 138 32 166.6 32 200c0 12.6 3.2 24.3 8.3 34.9C16.3 248.7 0 274.3 0 304c0 33.3 20.4 61.9 49.4 73.9c-.9 4.6-1.4 9.3-1.4 14.1c0 39.8 32.2 72 72 72c4.1 0 8.1-.5 12-1.2c9.6 28.5 36.2 49.2 68 49.2c39.8 0 72-32.2 72-72V64c0-35.3-28.7-64-64-64zm368 304c0-29.7-16.3-55.3-40.3-69.1c5.2-10.6 8.3-22.3 8.3-34.9c0-33.4-20.5-62-49.7-74c1-4.5 1.7-9.2 1.7-14c0-35.3-28.7-64-64-64c-.8 0-1.5.2-2.2.2C422.7 20.5 397.9 0 368 0c-35.3 0-64 28.6-64 64v376c0 39.8 32.2 72 72 72c31.8 0 58.4-20.7 68-49.2c3.9.7 7.9 1.2 12 1.2c39.8 0 72-32.2 72-72c0-4.8-.5-9.5-1.4-14.1c29-12 49.4-40.6 49.4-73.9z"/></svg>
+        <p id="avatar_intelligence">1000</p>
+                        </div>
+                        <div class="statEntry">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="73.15" viewBox="0 0 448 512"><path fill="white" d="M192 0c17.7 0 32 14.3 32 32v112h-64V32c0-17.7 14.3-32 32-32zM64 64c0-17.7 14.3-32 32-32s32 14.3 32 32v80H64V64zm192 0c0-17.7 14.3-32 32-32s32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V64zm96 64c0-17.7 14.3-32 32-32s32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32v-64zm-96 88v-.6c9.4 5.4 20.3 8.6 32 8.6c13.2 0 25.4-4 35.6-10.8c8.7 24.9 32.5 42.8 60.4 42.8c11.7 0 22.6-3.1 32-8.6v8.6c0 52.3-25.1 98.8-64 128v96c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32v-78.4c-17.3-7.9-33.2-18.8-46.9-32.5l-11.6-11.6c-24-24-37.5-56.6-37.5-90.5v-27c0-35.3 28.7-64 64-64h88c22.1 0 40 17.9 40 40s-17.9 40-40 40h-56c-8.8 0-16 7.2-16 16s7.2 16 16 16h56c39.8 0 72-32.2 72-72z"/></svg>
+        <p id="avatar_strength">1000</p>
+                        </div>
+                        <div class="statEntry">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><path fill="white" d="m7 22l4-7.5l-8-1L15 2h2l-4 7.5l8 1L9 22H7Z"/></svg>
+        <p id="avatar_speed">1000</p>
+                        </div>
+                    </div>
+                    <div class="background">
+                        <p id="avatar_story">
+                            The dragon, a formidable and ancient creature, embodies raw power and relentless destruction. <br>
+                            The dragon's eyes burn with an intense, fiery gaze, mirroring the inferno that lies within its belly. A single breath from its cavernous maw can unleash torrents of scorching flames, reducing everything in its path to smoldering ruins. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pick_hero" id="viewHero">
+            <div class="warrior">
+                <div class="name">Warrior</div>
+                <div class="hero">
+                    <div class="heroEntry" onclick="selectAvatar(3)">
+                        <img src="images/kazuki.png" alt="">
+                    </div>
+                    <div class="heroEntry" onclick="selectAvatar(7)">
+                        <img src="images/aya.png" alt="">
+                    </div>
+                    <div class="heroEntry" onclick="selectAvatar(4)">
+                        <img src="images/takumi.png" alt="">
+                    </div>
+                    <div class="heroEntry" onclick="selectAvatar(8)">
+                        <img src="images/yumi.png" alt="">
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="wizard">
+                <div class="name">Wizard</div>
+                <div class="hero">
+                    <div class="heroEntry" onclick="selectAvatar(1)">
+                        <img src="images/hiroshi.png" alt="">
+                    </div>
+                    <div class="heroEntry" onclick="selectAvatar(6)">
+                        <img src="images/hikari.png" alt="">
+                    </div>
+                    <div class="heroEntry" onclick="selectAvatar(2)">
+                        <img src="images/ryota.png" alt="">
+                    </div>
+                    <div class="heroEntry" onclick="selectAvatar(5)">
+                        <img src="images/sakura.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footEntry">
+                <h2>Pages</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="story.html">Story</a></li>
+                    <li><a href="app/signin.php">Play</a></li>
+                </ul>
+            </div>
+            <div class="footEntry">
+                <h2>Hero</h2>
+                <ul>
+                    <li>Hiroshi</li>
+                    <li>Kazuki</li>
+                    <li>Sakura</li>
+                    <li>Aya</li>
+                </ul>
+            </div>
+            <div class="footEntry">
+                <h2>Company</h2>
+                <ul>
+                    <li><a href="mailto:cs_ninja@gmail.com">cs_ninja@gmailcom</a></li>
+                    <li>09707281718</li>
+                    <li>Puerto Princesa City</li>
+                    <li>story</li>
+                </ul>
+            </div>
+        </div>
+
+ <script src="script.js"></script>
 </body>
 </html>
+

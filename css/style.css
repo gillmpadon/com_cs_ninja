@@ -1,0 +1,291 @@
+:root{
+    --body: #352F2F;
+    --container: #D9D9D9;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+body{
+    background-color: var(--body);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+#icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+#icon svg{
+    height: 2.5em;
+}
+
+#page{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    
+}
+#btnPlay{
+    background-color: black;
+    color: white;
+    padding: .3em 1em .3em 1em;
+    border-radius: .5em;
+}
+
+.tab{
+    font-size: 1.5em;
+}
+
+.nav{
+    background-color: var(--container);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+/* content */
+.info,.select_hero,.pick_hero,.footer{
+    margin: auto;
+    margin-top: 1em;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.images{
+    height: 90%;
+    width: 30%;
+    display: flex;
+}
+.images img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.images svg{
+    height: 100%;
+    color: #D9D9D9;
+}
+
+.information{
+    height: 90%;
+    width: 60%;
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: white;
+    text-indent: 1em;
+    text-align: justify;
+}
+
+/* select_hero */
+.imagesHero,.imagesInfo{
+    width: 30%;
+    height: 100%;
+}
+.imagesHero img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.imagesInfo{
+    width: 80%;
+}
+.heroCharacter{
+    display: flex;
+    justify-content: center;
+    height: 75%;
+}
+.statistics{
+    width: 20%;
+}
+.statEntry{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.statEntry svg{
+    height: 3em;
+}
+.statEntry p{
+    font-size: 1.5em;
+    color: white;
+}
+.background{
+    width: 70%;
+    font-size: 1.5em;
+    color: white;
+}
+
+.headName{
+    color: white;
+    margin: auto;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+/* pick_hero */
+.pick_hero{
+    display: block;
+    height: 20em;
+    margin-bottom: 12em;
+}
+.warrior, .wizard{
+    display: block;
+    width: 100%;
+    height: 60%;
+    margin-bottom: 3em;
+}
+.name{
+    color: white;
+    margin: auto;
+    text-align: center;
+    height: 25%;
+    font-size: 2em;
+}
+.hero{
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.heroEntry{
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 100%;
+    border-radius: .5em;
+    background-color: #D9D9D9;
+}
+.allabout{
+    background-color: #352F2F;
+    border: none;
+    width: 20%;
+}
+.heroEntry img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* footer */
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    color: black;
+    background-color: #D9D9D9;
+}
+
+.footEntry ul{
+    font-size: 1.5em;
+    padding: 0;
+}
+.footEntry ul li{
+    text-decoration: none;
+    list-style-type: none;
+    text-align: left;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+
+#lastDetail{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .select_hero{
+        display: block;
+    }
+    .imagesHero,.imagesInfo{
+        width: 100%;
+    }
+    .heroCharacter{
+        width: 100%;
+        margin: auto;
+        justify-content: space-between;
+    }
+    #page{
+        width: 60%;
+    }
+}
+@media screen and (max-width:425px) {
+    #icon{
+        width: 100%;
+    }
+    .nav{
+        display: block;
+    }
+    #page{
+        display: none;
+        margin: auto;
+        text-align: center;
+        padding-bottom: 1em;
+    }
+ 
+    .info{
+        display: block;
+    }
+    .info div{
+        width: 100%;
+    }
+    .pick_hero{
+        height: 100%;
+    }
+    .hero{
+        display: block;
+    }
+    .heroEntry{
+        width: 50%;
+        margin: auto;
+        margin-bottom: 1em;
+        
+    }
+    .footer{
+        display: block;
+    }
+    .footEntry,.footEntry ul li{
+        margin:auto;
+        text-align: center;
+    }
+}
+@media screen and (max-width:320px){
+    .heroEntry{
+        width: 90%;
+    }
+    .heroCharacter{
+        display: block;
+    }
+    .statistics,.background{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: justify;
+    }
+    .statistics{
+        display: block;
+    }
+    .information p{
+        width: 90%;
+        font-size: 1em;
+        margin: auto;
+    }
+    #avatar_story{
+        width: 90%;
+        margin:auto;
+    }
+}

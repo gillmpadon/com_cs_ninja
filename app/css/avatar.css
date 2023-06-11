@@ -37,6 +37,7 @@ body {
     height: 3em;
     width: 3em;
     border-radius: 150%;
+    
 }
 
 
@@ -51,6 +52,7 @@ body {
     height: 100%;
     width: 100%;
     object-fit: contain;
+    
 }
 
 /* userStats */
@@ -102,6 +104,7 @@ body {
     height: 100%;
     width: 100%;
     object-fit: contain;
+    
 }
 
 

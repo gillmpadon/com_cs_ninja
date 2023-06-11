@@ -4,18 +4,21 @@ if(isset($_POST['submit'])){
     if(isset($_POST['username']) && $_POST['password']){
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $query = "SELECT * from account";
+        $query = "SELECT * from account where username = '$username' and password = '$password'";
         $Fetch = mysqli_query($conn,$query);
         if($Fetch){
             $queryFetch = mysqli_fetch_array($Fetch);
             if($queryFetch['username']==$username and $queryFetch['password']==$password){
                 session_start();
                 $_SESSION['id'] = $queryFetch['id'];
-                echo "<script>alert('Succesful');</script>";
-                header("Location: menu.php");
+                $_SESSION['avatar'] = $queryFetch['avatar'];
+                echo "<script>localStorage.setItem('avatarHero', '" . $queryFetch['avatar'] . "');</script>";
+                $_SESSION['password'] = $queryFetch['password'];
+                echo "<script>window.location.href='menu.php'</script>";
                 exit();
             }else{
                 echo "<script>alert('NOT Succesful');</script>";
+                // echo mysqli_error($conn);
             }
         }else{
             echo "Query error: " . mysqli_error($conn);
@@ -32,7 +35,8 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
     <div class="container">
@@ -58,7 +62,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <svg onclick="togglePasswordVisibility()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
             </div>
-            <a id="forgot" href="forgot.html">FORGOT PASSWORD</a>
+            <a id="forgot" href="forgot.php">FORGOT PASSWORD</a>
 
             <div class="botBtn">
                 <button name="submit" type="submit">SUBMIT</button>

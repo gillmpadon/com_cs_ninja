@@ -31,7 +31,7 @@ if(isset($_GET['output'])){
         $updateLevel ="UPDATE account set points = $pts , level = FLOOR($pts/2) where id = $user_id";
         $updateRes = mysqli_query($conn,$updateLevel);
         $id++;
-        echo "<script>setTimeout(function() { window.location.href = 'quest.php?id_quest=$id'; }, 1000);</script>";
+        // echo "<script>setTimeout(function() { window.location.href = 'quest.php?id_quest=$id'; }, 1000);</script>";
         exit();
     }else{
         echo mysqli_error($conn);
@@ -44,8 +44,9 @@ if(isset($_GET['output'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/quest.css">
+    <title>Adventure</title>
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/quest.css">
 </head>
 <body>
     <div class="container">
