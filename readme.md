@@ -1,4 +1,4 @@
-# Project Name
+# CS NINJA
 
 
 Embark on an exhilarating coding adventure with CS Ninja Web Application, where gaming meets programming challenges. Harness the power of HTML, CSS, JavaScript, PHP, and MySQL to unlock your coding potential and become a coding ninja in a captivating and immersive gaming environment.
