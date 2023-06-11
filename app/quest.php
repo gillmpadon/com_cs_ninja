@@ -31,7 +31,7 @@ if(isset($_GET['output'])){
         $updateLevel ="UPDATE account set points = $pts , level = FLOOR($pts/2) where id = $user_id";
         $updateRes = mysqli_query($conn,$updateLevel);
         $id++;
-        // echo "<script>setTimeout(function() { window.location.href = 'quest.php?id_quest=$id'; }, 1000);</script>";
+        echo "<script>setTimeout(function() { window.location.href = 'quest.php?id_quest=$id'; }, 1000);</script>";
         exit();
     }else{
         echo mysqli_error($conn);

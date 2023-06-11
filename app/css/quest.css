@@ -55,7 +55,7 @@ body {
     color: var(--colorText);
     width: 100%;
     font-size: 1.1em;
-    height: 8em;
+    height: 7em;
 }
 .problem textarea:focus{
     outline: none;

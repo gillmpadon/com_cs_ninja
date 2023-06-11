@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Settings</title>
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/menu.css">
 </head>
@@ -30,7 +30,7 @@
                     <p>SOUND</p>
                 </div>
                 <?php if($id!=1){ ?>
-                <div class="entryDash" onclick="goPage('confirmDelete') ">
+                <div id="deleteEntry" class="entryDash" onclick="goPage('confirmDelete') ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 256 256"><path fill="currentColor" d="M208 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16Zm-26.34 138.34a8 8 0 0 1-11.32 11.32L128 139.31l-42.34 42.35a8 8 0 0 1-11.32-11.32L116.69 128L74.34 85.66a8 8 0 0 1 11.32-11.32L128 116.69l42.34-42.35a8 8 0 0 1 11.32 11.32L139.31 128Z"/></svg>
                     <p>DELETE ACCOUNT</p>
                 </div>

@@ -176,6 +176,9 @@ form{
         height: 2em;
         width: 2em;
     }
+    #deleteEntry{
+        font-size: .9em;
+    }
 }
 
 @media screen and (max-width: 450px){

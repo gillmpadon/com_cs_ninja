@@ -56,10 +56,8 @@
                 </div>
         </div>
     </div>
-    <audio id="background-music" src="music/bg_music.mp3" loop ></audio>
-<script>
-    const goPage = (str) => window.location.href = `${str}.php`;
-    const goBack = () => window.history.back();
+    <script>
+
 
     const submit = document.getElementById('submit');
     submit.addEventListener('click', function(){
@@ -73,6 +71,7 @@
     })
 
 </script>
-
+<audio id="background-music" src="music/bg_music.mp3" loop style="display:none;"></audio>
+    <script src="mainscript.js"></script>
 </body>
 </html>
