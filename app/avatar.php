@@ -19,8 +19,7 @@ if(isset($_GET['confirm'])){
     $email = $_SESSION['email'];
     $updateAccount = "UPDATE account set avatar = $hero where username= '$username' and password = '$password' and email = '$email' ";
     if(mysqli_query($conn,$updateAccount)){
-        echo "<script>alert('Congratulations!');</script>";
-        echo "<script>window.location.href='signin.php'</script>";
+        echo "<script>window.location.href='avatar.php?congrats=true'</script>";
     }else{
         echo "<scrip>alert('There was an error!')</scrip>";
 
@@ -33,9 +32,12 @@ if(isset($_GET['confirm'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CS NINJA</title>
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/avatar.css">
+    <link rel="stylesheet" href="./includes/toast.css">
+
+
 </head>
 <body>
     <div class="container">
@@ -76,6 +78,7 @@ if(isset($_GET['confirm'])){
             <?php } ?>
         </div>
     </div>
+    <?php include('./includes/toast.php') ?>
     <audio id="background-music" src="music/bg_music.mp3" loop style="display:none;"></audio>
     <script>
         function avatar(hero){

@@ -8,7 +8,7 @@ $level = $user['level'];
 $photo = $user['photo'];
 ?>
             <div class="userProfile" onclick="goPage('profile')">
-                <img src="../images/<?php echo $photo; ?>"" alt="">
+                <img src="../images/<?php echo $photo; ?>" alt="">
                 <p id="name"><?php echo $user['username']; ?></p>
                 <p id="lvl"><?php echo "LVL ".$level; ?></p>
             </div>

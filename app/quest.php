@@ -3,7 +3,9 @@ require('connection/database.php');
 session_start();
 $user_id=$_SESSION['id'];
 $id = (isset($_GET['id_quest']))? $_GET['id_quest']: 1;
-$query  = "SELECT * from quiz where  id =$id and DATE(date_created) = CURDATE()";
+// $query  = "SELECT * from quiz where  id =$id and DATE(date_created) = CURDATE()";
+$query  = "SELECT * from quiz where  id =$id ";
+
 $results = mysqli_query($conn,$query);
 $assoc = mysqli_fetch_assoc($results);
 
@@ -26,12 +28,11 @@ if(isset($_GET['output'])){
     $insertTest = "INSERT INTO test(user_id,quiz_id,status) values($user_id,$id,1);";
     $resultTest = mysqli_query($conn, $insertTest);
     if($resultTest){
-        echo "<script>alert('You earned a Point');</script>";
         $pts = mysqli_num_rows($assocTestResult);
         $updateLevel ="UPDATE account set points = $pts , level = FLOOR($pts/2) where id = $user_id";
         $updateRes = mysqli_query($conn,$updateLevel);
         $id++;
-        echo "<script>setTimeout(function() { window.location.href = 'quest.php?id_quest=$id'; }, 1000);</script>";
+        echo "<script>setTimeout(function() { window.location.href = 'quest.php?correct=$id'; }, 1000);</script>";
         exit();
     }else{
         echo mysqli_error($conn);
@@ -47,6 +48,7 @@ if(isset($_GET['output'])){
     <title>Adventure</title>
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/quest.css">
+    <link rel="stylesheet" href="./includes/toast.css">
 </head>
 <body>
     <div class="container">
@@ -99,8 +101,9 @@ if(isset($_GET['output'])){
 
         </div>
     </div>
+    <?php include('includes/toast.php'); ?>
 
-    <script>
+    <script >
         const buttonSubmit = document.getElementById('buttonSubmit');
         buttonSubmit.style.visibility='hidden';
         const compileCode = (str) => eval(str) ;
@@ -128,8 +131,10 @@ if(isset($_GET['output'])){
             window.location.href='quest.php?id_quest=<?php echo $id ?>&output='+code
         }
 
+  
+
     </script>
      <audio id="background-music" src="music/bg_music.mp3" loop style="display:none;"></audio>
-    <script src="mainscript.js"></script>
+
 </body>
 </html>
